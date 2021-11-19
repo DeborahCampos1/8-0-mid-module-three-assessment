@@ -1,24 +1,17 @@
 import "./App.css";
-import productData from "./data/productData"; 
-import CheckoutForm from "./components/CheckoutForm";
 import { Component } from "react";
 import Products from "./components/Products";
 import ShoppingCart from "./components/ShoppingCart";
+import CheckoutForm from "./components/CheckoutForm";
+
 
 
 
 class App extends Component{
   constructor(){
     super();
-    this.state = {
 
-      productList: productData,
-
-      productName: "",
-      productPrice: 0,
-      productDescription: "",
-
-    }
+    
   }
   render(){
     return(
