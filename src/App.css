@@ -1,1 +1,20 @@
+#app-container{
+    display: grid;
+    grid-template-areas: 
+    "products products products cart"
+    "products products products checkout";
+}
+#product-list-container{
+    display: grid;
+    grid-area: products;
+    grid-template-columns: 1fr 1fr;
 
+}
+#checkout-form-container{
+    grid-area: checkout;
+    width: 50%;
+}
+#shopping-cart-container{
+    grid-area: cart;
+    width: 50%;
+}

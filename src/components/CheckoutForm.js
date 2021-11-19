@@ -3,11 +3,19 @@ import { Component } from "react";
 class CheckoutForm extends Component{
     constructor(){
         super()
+
+        this.state = {
+            firstName: "",
+            lastName: "",
+            email: "",
+            creditCard: "",
+            zipCode: ""
+        }
     }
 
     render(){
         return(
-            <div>
+            <div id="checkout-form-container">
                 <h2>Checkout</h2>
                 <form id="checkout" onSubmit ="this will be replaced with a method from App.js">
                     <label htmlFor="first-name">First Name</label>
@@ -18,6 +26,7 @@ class CheckoutForm extends Component{
                         name="firstName"
                         id="fitst-name"
                     />
+                    <br/>
                     <label htmlFor="last-name">Last Name</label>
                     <input
                         // onInput={}
@@ -26,6 +35,7 @@ class CheckoutForm extends Component{
                         name="lastName"
                         id="last-name"
                     />
+                    <br/>
                     <label htmlFor="email">Email</label>
                     <input
                         // onInput={}
@@ -34,6 +44,7 @@ class CheckoutForm extends Component{
                         name="email"
                         id="email"
                     />
+                    <br/>
                     <label htmlFor="credit-card">Credit Card</label>
                     <input
                         // onInput={}
@@ -42,6 +53,7 @@ class CheckoutForm extends Component{
                         name="creditCard"
                         id="credit-card"
                     />
+                    <br/>
                     <label htmlFor="zip-code">Zip Code</label>
                     <input
                         // onInput={}

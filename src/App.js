@@ -2,6 +2,8 @@ import "./App.css";
 import productData from "./data/productData"; 
 import CheckoutForm from "./components/CheckoutForm";
 import { Component } from "react";
+import Products from "./components/Products";
+import ShoppingCart from "./components/ShoppingCart";
 
 
 
@@ -16,16 +18,15 @@ class App extends Component{
       productPrice: 0,
       productDescription: "",
 
-      subTotal: 0,
-      tax: 0,
-      totalPrice: 0
-
     }
   }
   render(){
     return(
-      <div> 
-        
+      <div id="app-container"> 
+        <Products />
+        <ShoppingCart />
+        <CheckoutForm />
+
       </div>
     )
   }
