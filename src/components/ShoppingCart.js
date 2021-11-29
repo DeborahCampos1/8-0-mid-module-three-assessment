@@ -1,30 +1,28 @@
-import { Component } from "react";
-import formatPrice from "../helpers/formatPrice";
+ import { Component } from "react";
 
 class ShoppingCart extends Component{
-    constructor(props){
+    constructor(){
         super()
 
         
     }
 
     render(){
-        const {cartConyents, subTotal, tax, totalPrice} = this.props
+        const {cartContents, subTotal, tax, totalPrice} = this.props
 
-        return(
-            <div id="shopping-cart-container">
-                <h2>Shopping Cart</h2>
-                <ul>
-                    <li>shopping cart goes here</li>
-                </ul>
-                <div><b>Subtotal:{subTotal} </b></div>
-                <br/>
-                <div><b>Tax: </b></div>
-                <br/>
-                <div><b>Total: </b></div>
-            </div>
-        )
+        return
+            // <div id="shopping-cart-container">
+            //     <h2>Shopping Cart</h2>
+            //     <ul>
+            //         <li>{cartContents}</li>
+            //     </ul>
+            //     <div><b>Subtotal:{subTotal} </b></div>
+            //     <br/>
+            //     <div><b>Tax:{tax}</b></div>
+            //     <br/>
+            //     <div><b>Total:{totalPrice} </b></div>
+            // </div>
+        
     }
 }
 
-export default ShoppingCart

@@ -12,15 +12,56 @@ class CheckoutForm extends Component{
             zipCode: ""
         }
     }
+    handleSubmit=(e)=>{
+        e.preventdefault();
+
+        console.log("trigger")
+        // 
+        // this.setState({
+            // firstName:,
+            // lastName:,
+            // email:,
+
+        // })
+    }
+
+    handleFirstName=(e)=>{
+        this.setState({
+            firstName: e.target.value
+        })
+    }
+
+    handleLastName=(e)=>{
+        this.setState({
+            lastName: e.target.value
+        })
+    }
+
+    handleEmail=(e)=>{
+        this.setState({
+            email: e.target.value
+        })
+    }
+
+    handleCreditCard=(e)=>{
+        this.setState({
+            creditCard: e.target.value
+        })
+    }
+    handleZipCode=(e)=>{
+        this.setState({
+            zipCode: e.target.value
+        })
+    }
 
     render(){
         return(
             <div id="checkout-form-container">
                 <h2>Checkout</h2>
-                <form id="checkout" onSubmit ="this will be replaced with a method from App.js">
+                <form id="checkout" onSubmit ={this.handleSubmit}>
                     <label htmlFor="first-name">First Name</label>
                     <input
-                        // onInput={}
+                        onChange={this.handleFirstName}
                         value={this.state.firstName}
                         type="text"
                         name="firstName"
@@ -29,34 +70,34 @@ class CheckoutForm extends Component{
                     <br/>
                     <label htmlFor="last-name">Last Name</label>
                     <input
-                        // onInput={}
+                        onChange={this.handleLastName}
                         value={this.state.lastName}
                         type="text"
                         name="lastName"
                         id="last-name"
                     />
-                    <br/>
+                     <br/>
                     <label htmlFor="email">Email</label>
                     <input
-                        // onInput={}
+                        onChange={this.handleEmail}
                         value={this.state.email}
                         type="email"
                         name="email"
                         id="email"
                     />
-                    <br/>
+                     <br/>
                     <label htmlFor="credit-card">Credit Card</label>
                     <input
-                        // onInput={}
+                        onChange={this.handleCreditCard}
                         value={this.state.creditCard}
                         type="number"
                         name="creditCard"
                         id="credit-card"
                     />
-                    <br/>
+                     <br/>
                     <label htmlFor="zip-code">Zip Code</label>
                     <input
-                        // onInput={}
+                        onChange={this.handleZipCode}
                         value={this.state.zipCode}
                         type="number"
                         name="zipCode"
