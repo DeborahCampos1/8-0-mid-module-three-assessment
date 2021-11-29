@@ -13,7 +13,7 @@ class CheckoutForm extends Component{
         }
     }
     handleSubmit=(e)=>{
-        e.preventdefault();
+        e.preventDefault();
 
         console.log("trigger")
         // 
