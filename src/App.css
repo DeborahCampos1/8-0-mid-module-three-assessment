@@ -1,10 +1,11 @@
 #app-container{
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
     grid-template-areas: 
-    " header header . cart"
-    "products products products checkout";
+    " header header cart"
+    "products products checkout";
 }
-.products{
+.products-container{
     display: grid;
     grid-area: products;
     grid-template-columns: 1fr 1fr;
@@ -23,4 +24,7 @@
 }
 h1{
     grid-area: header;
+}
+input{
+    padding: 5px;
 }

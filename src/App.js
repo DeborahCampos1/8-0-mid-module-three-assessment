@@ -13,36 +13,24 @@ class App extends Component{
 
     this.state = {
 
-      // productList: productData ,
       productName: "",
       productPrice: 0,
       productDescription: "",
 
       cartContents: [],
-
-
       subTotal: 0,
-      tax: 0,
-      totalPrice: 0,
-      
-
     }
     
   }
 
   handleAddToCart=(product)=>{
 
-    console.log("triggw")
-
-    // const {cartContents, subTotal, tax, productPrice, totalPrice} = this.state;
+    const {cartContents, subTotal, productPrice} = this.state;
      this.setState({
-      // productName: product.name,
-      // productPrice: product.price,
-      subTotal: this.state.subTotal + product.price,
-      cartContents: [...this.state.cartContents, product],
-      // tax: this.state.subTotal * .05,
-      // totalPrice: this.state.subTotal + this.state.tax
-
+      subTotal: subTotal + product.price,
+      cartContents: [...cartContents, product],
+      tax: (subTotal + productPrice) * .05,
+      totalPrice: subTotal * 1.05
      })
   }
   render(){
@@ -50,30 +38,44 @@ class App extends Component{
     let productsToDisplay = productData.map((product)=>{
       return(
         <div key={product.id}>
-          <h2>{product.name}</h2>
-          <p>{formatPrice(product.price)}</p>
-          <img src={product.img} alt={product.name}></img>
-          <p>{product.description}</p>
-          <button type="submit" onClick={()=>this.handleAddToCart(product)}>Add to Cart</button>
+          <div className="products">
+            <h2>{product.name}</h2>
+            <p>Price: {formatPrice(product.price)}</p>
+            <img src={product.img} alt={product.name}></img>
+            <p>{product.description}</p>
+            <button type="submit" onClick={()=>this.handleAddToCart(product)}>Add To Cart</button>
+          </div>
         </div>
       )
     })
+    
+    let tax = this.state.subTotal * .05;
+    let totalPrice= this.state.subTotal * 1.05;
+
+    let cart = this.state.cartContents.map((item)=>{
+        return(
+          <div>
+            <li key={item.id}>{item.name}: {formatPrice(item.price)}</li>
+          </div>
+        )
+    })
+
     return(
       <div id="app-container"> 
         <h1>Garage Sale Products</h1>
-        <div className="products" >
+        <div className="products-container" >
           {productsToDisplay}
         </div>
         <div id="shopping-cart-container">
                 <h2>Shopping Cart</h2>
                 <ul>
-                    <li>{this.state.cartContents}</li>
+                    {cart}
                 </ul>
-                <div><b>Subtotal:{formatPrice(this.state.subTotal)} </b></div>
+                <div><b>Subtotal: {formatPrice(this.state.subTotal)} </b></div>
                 <br/>
-                <div><b>Tax:{formatPrice(this.state.tax)}</b></div>
+                <div><b>Tax: {formatPrice(tax)}</b></div>
                 <br/>
-                <div><b>Total:{formatPrice(this.state.totalPrice)} </b></div>
+                <div><b>Total: {formatPrice(totalPrice)} </b></div>
             </div>
        
         {/* <ShoppingCart handleAddToCart={this.handleAddToCart}/> */}
