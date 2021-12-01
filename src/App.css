@@ -5,7 +5,7 @@
     " header header cart"
     "products products checkout";
 }
-.products-container{
+.products{
     display: grid;
     grid-area: products;
     grid-template-columns: 1fr 1fr;

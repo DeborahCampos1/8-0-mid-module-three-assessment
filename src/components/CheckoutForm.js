@@ -13,16 +13,35 @@ class CheckoutForm extends Component{
         }
     }
     handleSubmit=(e)=>{
+        const {firstName,lastName, email,creditCard,zipCode} = this.state
         e.preventDefault();
 
-        console.log("trigger")
-        // 
-        // this.setState({
-            // firstName:,
-            // lastName:,
-            // email:,
+        if(firstName.length <3 || firstName === ""){
+            alert("Input is not valid")
+            alert("First Name is not valid")
+        
+        } if(lastName === "" || lastName.length < 2){
+            alert("Input is not valid.")
+            alert("Last Name is not valid")
+            
+        } if(creditCard.length !== 16){
+            alert("Credit card number is not valid")
+        } if(zipCode.length !== 5){
+            alert("Zip code is not valid")
 
-        // })
+        } else {
+            alert("Purchase complete $73.49")
+        }
+        console.log("trigger")
+        
+        this.setState({
+            firstName:"",
+            lastName:"",
+            email:"",
+            creditCard:"",
+            zipCode: ""
+
+        })
     }
 
     handleFirstName=(e)=>{
@@ -60,15 +79,17 @@ class CheckoutForm extends Component{
                 <h2>Checkout</h2>
                 <form id="checkout" onSubmit ={this.handleSubmit}>
                     <label htmlFor="first-name">First Name</label>
+                    <br/>
                     <input
                         onChange={this.handleFirstName}
                         value={this.state.firstName}
                         type="text"
                         name="firstName"
-                        id="fitst-name"
+                        id="first-name"
                     />
                     <br/>
                     <label htmlFor="last-name">Last Name</label>
+                    <br/>
                     <input
                         onChange={this.handleLastName}
                         value={this.state.lastName}
@@ -78,6 +99,7 @@ class CheckoutForm extends Component{
                     />
                      <br/>
                     <label htmlFor="email">Email</label>
+                    <br/>
                     <input
                         onChange={this.handleEmail}
                         value={this.state.email}
@@ -87,19 +109,21 @@ class CheckoutForm extends Component{
                     />
                      <br/>
                     <label htmlFor="credit-card">Credit Card</label>
+                    <br/>
                     <input
                         onChange={this.handleCreditCard}
                         value={this.state.creditCard}
-                        type="number"
+                        type="text"
                         name="creditCard"
                         id="credit-card"
                     />
                      <br/>
                     <label htmlFor="zip-code">Zip Code</label>
+                    <br/>
                     <input
                         onChange={this.handleZipCode}
                         value={this.state.zipCode}
-                        type="number"
+                        type="text"
                         name="zipCode"
                         id="zip-code"
                     />

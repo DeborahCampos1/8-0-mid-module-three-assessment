@@ -38,7 +38,7 @@ class App extends Component{
     let productsToDisplay = productData.map((product)=>{
       return(
         <div key={product.id}>
-          <div className="products">
+          <div className="products-to-display">
             <h2>{product.name}</h2>
             <p>Price: {formatPrice(product.price)}</p>
             <img src={product.img} alt={product.name}></img>
@@ -63,7 +63,7 @@ class App extends Component{
     return(
       <div id="app-container"> 
         <h1>Garage Sale Products</h1>
-        <div className="products-container" >
+        <div className="products" >
           {productsToDisplay}
         </div>
         <div id="shopping-cart-container">
@@ -78,7 +78,6 @@ class App extends Component{
                 <div><b>Total: {formatPrice(totalPrice)} </b></div>
             </div>
        
-        {/* <ShoppingCart handleAddToCart={this.handleAddToCart}/> */}
         <CheckoutForm />
        
 

@@ -13,7 +13,7 @@ class Products extends Component{
         const {productPrice} = this.props
 
         return(
-            <div className = "products" id="product-list-container">
+            <div id="product-list-container">
                 <h1>Items for sale go here</h1>
                 <div>
                     <h2>Product Name</h2>
@@ -26,4 +26,3 @@ class Products extends Component{
     }
 }
 
-export default Products
